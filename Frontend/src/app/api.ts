@@ -4,9 +4,10 @@ import { Store } from '@reduxjs/toolkit';
 import { logoutSuccess, setAccessToken } from '../features/auth/AuthSlice';
 
 axios.defaults.withCredentials = true;
+const BACKEND_PREFIX = import.meta.env.VITE_BACKEND_PREFIX;
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL,
+  baseURL: `${import.meta.env.VITE_BACKEND_URL}${BACKEND_PREFIX}`, 
   withCredentials: true, // This ensures cookies are sent with requests
 });
 
